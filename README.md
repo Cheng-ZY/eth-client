@@ -1,8 +1,17 @@
-# eth-client
-php eth 交易客户端
+# EthClient
+PHP Eth 客户端
 # 在此库的基础上做修改
 https://github.com/myxtype/ethereum-client
-# 在 Hyperf-3(PHP8.1) 框架上使用
+## 依赖 php-gmp 扩展，linux-alpine 环境添加命令
+```shell
+apk add gmp-dev
+apk add php81-gmp
+```
+## 安装
+```shell
+composer require czy/eth-client
+```
+## 在 Hyperf-3(PHP8.1) 框架上使用
 ```php
 <?php
 
@@ -67,7 +76,7 @@ class Eth extends AbstractController
         $to = '0x0e9022479bd23b749cdE790e8c348C39401FE481';
         $value = '0.001'; // eth
         // from 钱包私钥
-        $this->ethClient->addPrivateKeys(['a44a3081b4166fe75d8a54c23c9cba9c2f759176f4f2d824a284ce851bb56c9f']);
+        $this->ethClient->addPrivateKeys(['PrivateKey']);
         // 交易数据
         $trans = [
             'from' => $from,
