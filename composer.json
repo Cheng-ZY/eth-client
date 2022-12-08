@@ -1,0 +1,25 @@
+{
+    "name": "czy/eth-client",
+    "description": "ethereum rpc client, offline sign, php",
+    "authors": [
+        {
+            "name": "赵波",
+            "email": "792598794@qq.com"
+        },
+        {
+            "name": "czy",
+            "email": "cczzyy.cn@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-gmp": "*",
+        "simplito/elliptic-php": "^1.0",
+        "kornrunner/keccak": "^1.0",
+        "psr/http-client": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Czy\\": "src/"
+        }
+    }
+}
