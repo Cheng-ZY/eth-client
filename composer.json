@@ -17,7 +17,8 @@
         "ext-gmp": "*",
         "simplito/elliptic-php": "^1.0",
         "kornrunner/keccak": "^1.0",
-        "psr/http-client": "*"
+        "psr/http-client": "*",
+        "ext-bcmath": "*"
     },
     "autoload": {
         "psr-4": {

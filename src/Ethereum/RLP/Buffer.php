@@ -154,8 +154,7 @@ class Buffer implements ArrayAccess
     /**
      * concat
      *
-     * @param mixed $inputs
-     * @return \RLP\Buffer
+     * @return Buffer
      */
     public function concat()
     {
@@ -183,7 +182,7 @@ class Buffer implements ArrayAccess
      *
      * @param int $start
      * @param mixed $end
-     * @return \RLP\Buffer
+     * @return Buffer
      */
     public function slice(int $start=0, $end=null)
     {

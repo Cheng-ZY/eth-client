@@ -6,7 +6,7 @@ use Elliptic\EC;
 use kornrunner\Keccak;
 use Psr\Http\Client\ClientInterface;
 
-class Client
+class EthClient
 {
     // instence
     public static $instence = null;
@@ -138,9 +138,6 @@ class Client
 
     /**
      * 对交易数据进行签名
-     * @param $pri 十六进制私钥
-     * @param $msg 十六进制数据
-     * @return $signature
      */
     public function sign($addr, $data)
     {
@@ -175,7 +172,7 @@ class Client
 
     /**
      * 新建账户
-     * @return 私钥和地址
+     * @return array 私钥和地址
      */
     public function newAccount()
     {
