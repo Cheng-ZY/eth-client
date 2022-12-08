@@ -1,5 +1,14 @@
 # EthClient
 PHP Eth 客户端
+[![Latest Stable Version](https://poser.pugx.org/czy/eth-client/v)](https://packagist.org/packages/czy/eth-client)
+[![PHP Version Require](https://poser.pugx.org/czy/eth-client/require/php)](https://www.php.net)
+[![Require](https://poser.pugx.org/czy/eth-client/require/ext-gmp)](https://packagist.org/packages/vufind/vufind)
+[![Require](https://poser.pugx.org/czy/eth-client/require/ext-bcmath)](https://packagist.org/packages/vufind/vufind)
+[![Require](https://poser.pugx.org/czy/eth-client/require/simplito/elliptic-php)](https://packagist.org/packages/simplito/elliptic-php)
+[![Require](https://poser.pugx.org/czy/eth-client/require/kornrunner/keccak)](https://packagist.org/packages/kornrunner/keccak)
+[![Require](https://poser.pugx.org/czy/eth-client/require/psr/http-client)](https://packagist.org/packages/psr/http-client)
+[![Total Downloads](https://poser.pugx.org/czy/eth-client/downloads)](https://packagist.org/packages/czy/eth-client)
+[![License](https://poser.pugx.org/czy/eth-client/license)](https://packagist.org/packages/czy/eth-client)
 # 在此库的基础上做修改
 https://github.com/myxtype/ethereum-client
 ## 依赖 php-gmp 扩展，linux-alpine 环境添加命令
