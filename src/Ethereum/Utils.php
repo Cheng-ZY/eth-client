@@ -48,7 +48,7 @@ class Utils
     /**
      * wei转ether
      */
-    public function weiToEth($value, $hex = false)
+    public static function weiToEth($value, $hex = false)
     {
         if (strtolower(substr($value, 0, 2)) == '0x') {
             $value = self::hexToDec(self::remove0x($value));
