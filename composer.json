@@ -1,6 +1,8 @@
 {
     "name": "czy/eth-client",
     "description": "ethereum rpc client, offline sign, php",
+    "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "赵波",
