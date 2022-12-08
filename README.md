@@ -86,8 +86,9 @@ class Eth extends AbstractController
         ];
         // gas 预估值
         $trans['gas'] = dechex((int) hexdec($this->ethClient->eth_estimateGas($trans)));
-        // gas 手续费
+        // gas 单价
         $trans['gasPrice'] = $this->ethClient->eth_gasPrice();
+        // 交易序号
         $trans['nonce'] = $this->ethClient->eth_getTransactionCount($from, 'pending');
 
         // 发送交易请求，返回交易哈希
