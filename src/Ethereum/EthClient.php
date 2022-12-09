@@ -3,8 +3,8 @@
 namespace Czy\Ethereum;
 
 use Elliptic\EC;
+use GuzzleHttp\Client;
 use kornrunner\Keccak;
-use Psr\Http\Client\ClientInterface;
 
 class EthClient
 {
@@ -29,7 +29,7 @@ class EthClient
     /**
      * @param @options
      */
-    public function __construct(ClientInterface $client)
+    public function __construct(Client $client)
     {
         $this->client =$client;
 //        $defaultOptions = [
@@ -208,7 +208,6 @@ class EthClient
         switch ($method) {
             case 'eth_getBalance':
                 return [0 => '', 1 => 'latest'];
-                break;
             // TODO::more
             default:
                 // code...

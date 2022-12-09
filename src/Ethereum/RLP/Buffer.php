@@ -53,7 +53,8 @@ class Buffer implements ArrayAccess
      * @param mixed $value
      * @return void
      */
-    public function offsetSet($offset, $value)
+    #[\ReturnTypeWillChange]
+    public function offsetSet($offset, $value):void
     {
         if (is_null($offset)) {
             $this->data[] = $value;
@@ -68,6 +69,7 @@ class Buffer implements ArrayAccess
      * @param mixed $offset
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->data[$offset]);
@@ -79,7 +81,8 @@ class Buffer implements ArrayAccess
      * @param mixed $offset
      * @return void
      */
-    public function offsetUnset($offset)
+    #[\ReturnTypeWillChange]
+    public function offsetUnset($offset):void
     {
         unset($this->data[$offset]);
     }
@@ -90,6 +93,7 @@ class Buffer implements ArrayAccess
      * @param mixed $offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->data[$offset]) ? $this->data[$offset] : null;
@@ -136,7 +140,6 @@ class Buffer implements ArrayAccess
             break;
             default:
             throw new InvalidArgumentException('ToString encoding must be valid.');
-            break;
         }
         return $output;
     }
@@ -280,7 +283,6 @@ class Buffer implements ArrayAccess
             break;
             default:
             throw new InvalidArgumentException('StringToData encoding must be valid.');
-            break;
         }
         return $output;
     }
@@ -301,7 +303,7 @@ class Buffer implements ArrayAccess
     /**
      * intToData
      *
-     * @param mixed $intput
+     * @param mixed $input
      * @return array
      */
     protected function intToData($input)
