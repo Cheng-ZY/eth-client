@@ -3,11 +3,12 @@
 PHP Eth 客户端
 ##
 [![Latest Stable Version](https://poser.pugx.org/czy/eth-client/v)](https://packagist.org/packages/czy/eth-client)
+[![Require](https://poser.pugx.org/czy/eth-client/require/ext-json)](https://packagist.org/packages/vufind/vufind)
 [![Require](https://poser.pugx.org/czy/eth-client/require/ext-gmp)](https://packagist.org/packages/vufind/vufind)
 [![Require](https://poser.pugx.org/czy/eth-client/require/ext-bcmath)](https://packagist.org/packages/vufind/vufind)
 [![Require](https://poser.pugx.org/czy/eth-client/require/simplito/elliptic-php)](https://packagist.org/packages/simplito/elliptic-php)
 [![Require](https://poser.pugx.org/czy/eth-client/require/kornrunner/keccak)](https://packagist.org/packages/kornrunner/keccak)
-[![Require](https://poser.pugx.org/czy/eth-client/require/psr/http-client)](https://packagist.org/packages/psr/http-client)
+[![Require](https://poser.pugx.org/czy/eth-client/require/guzzlehttp/guzzle)](https://packagist.org/packages/guzzlehttp/guzzle)
 [![Total Downloads](https://poser.pugx.org/czy/eth-client/downloads)](https://packagist.org/packages/czy/eth-client)
 [![License](https://poser.pugx.org/czy/eth-client/license)](https://packagist.org/packages/czy/eth-client)
 # 在此库的基础上做修改
@@ -20,8 +21,6 @@ apk add php81-gmp
 ## 安装
 ```shell
 composer require czy/eth-client
-# eth-client 实际调用客户端需实现 Psr\Http\Client\ClientInterface 
-composer require guzzlehttp/guzzle
 ```
 ## 在 Hyperf-3(PHP8.1) 框架上使用
 #### 更多方法搜索 'eth jsonrpc' ,EthClient 调用 'eth_' 开头的方法都为 eth jsonrpc 接口方法
@@ -52,7 +51,6 @@ class Eth extends AbstractController
 
     public function __construct()
     {
-        // implements Psr\Http\Client\ClientInterface
         $client = new Client([
             // eth 节点, 这里为 eth-goerli 测试节点
             'base_uri' => 'https://eth-goerli.g.alchemy.com/v2/cQ_wTHz6237vKR8yagHHTyrv1XPug_Oj',
