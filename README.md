@@ -1,6 +1,6 @@
 # 
 # EthClient
-PHP Eth 客户端
+PHP Eth RPC客户端
 ##
 [![Latest Stable Version](https://poser.pugx.org/czy/eth-client/v)](https://packagist.org/packages/czy/eth-client)
 [![Require](https://poser.pugx.org/czy/eth-client/require/ext-json)](https://packagist.org/packages/vufind/vufind)
