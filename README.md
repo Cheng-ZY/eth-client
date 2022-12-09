@@ -24,6 +24,7 @@ composer require czy/eth-client
 composer require guzzlehttp/guzzle
 ```
 ## 在 Hyperf-3(PHP8.1) 框架上使用
+#### 更多方法搜索 'eth jsonrpc' ,EthClient 调用 'eth_' 开头的方法都为 eth jsonrpc 接口方法
 ```php
 <?php
 
