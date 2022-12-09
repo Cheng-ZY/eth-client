@@ -12,7 +12,7 @@ PHP Eth 客户端
 [![License](https://poser.pugx.org/czy/eth-client/license)](https://packagist.org/packages/czy/eth-client)
 # 在此库的基础上做修改
 https://github.com/myxtype/ethereum-client
-## 依赖 php-gmp 扩展，linux-alpine 环境添加命令
+## 依赖 php-gmp 扩展，linux-alpine-php8.1 环境添加命令
 ```shell
 apk add gmp-dev
 apk add php81-gmp
