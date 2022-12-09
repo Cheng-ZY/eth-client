@@ -44,19 +44,38 @@ use Psr\Http\Message\ResponseInterface;
 #[Controller(prefix: 'Eth')]
 class Eth extends AbstractController
 {
-    /*
-     * eth 客户端
+    /**
+     * @var EthClient eth 客户端
      */
     protected EthClient $ethClient;
+
+    /**
+     * @var string eth 节点, 这里为 eth-goerli 测试节点
+     */
+    private string $ethUri = 'https://eth-goerli.g.alchemy.com/v2/cQ_wTHz6237vKR8yagHHTyrv1XPug_Oj';
 
     public function __construct()
     {
         $client = new Client([
-            // eth 节点, 这里为 eth-goerli 测试节点
-            'base_uri' => 'https://eth-goerli.g.alchemy.com/v2/cQ_wTHz6237vKR8yagHHTyrv1XPug_Oj',
+            'base_uri' => $this->ethUri,
             'timeout' => 10,
         ]);
         $this->ethClient = new EthClient($client);
+    }
+
+    /**
+     * eth 协议版本。
+     * @return ResponseInterface
+     */
+    #[RequestMapping(path: 'protocolVersion')]
+    public function protocolVersion(): ResponseInterface
+    {
+        $result = $this->ethClient->eth_protocolVersion();
+        return $this->responseJson([
+            'code' => 200,
+            'msg' => 'Eth/protocolVersion',
+            'data' => hexdec($result),
+        ]);
     }
 
     /**
@@ -88,7 +107,7 @@ class Eth extends AbstractController
         $to = '0x0e9022479bd23b749cdE790e8c348C39401FE481';
         $value = '0.001'; // eth
         // from 钱包私钥
-        $this->ethClient->addPrivateKeys(['PrivateKey']);
+        $this->ethClient->addPrivateKeys(['a44a3081b4166fe75d8a54c23c9cba9c2f759176f4f2d824a284ce851bb56c9f']);
         // 交易数据
         $trans = [
             'from' => $from,
