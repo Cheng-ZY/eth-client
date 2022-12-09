@@ -107,7 +107,7 @@ class Eth extends AbstractController
         $to = '0x0e9022479bd23b749cdE790e8c348C39401FE481';
         $value = '0.001'; // eth
         // from 钱包私钥
-        $this->ethClient->addPrivateKeys(['a44a3081b4166fe75d8a54c23c9cba9c2f759176f4f2d824a284ce851bb56c9f']);
+        $this->ethClient->addPrivateKeys(['PrivateKey']);
         // 交易数据
         $trans = [
             'from' => $from,
