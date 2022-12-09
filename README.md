@@ -51,7 +51,7 @@ class Eth extends AbstractController
 
     public function __construct()
     {
-        // Psr\Http\Client\ClientInterface
+        // implements Psr\Http\Client\ClientInterface
         $client = new Client([
             // eth 节点, 这里为 eth-goerli 测试节点
             'base_uri' => 'https://eth-goerli.g.alchemy.com/v2/cQ_wTHz6237vKR8yagHHTyrv1XPug_Oj',
