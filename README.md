@@ -20,6 +20,8 @@ apk add php81-gmp
 ## 安装
 ```shell
 composer require czy/eth-client
+# eth-client 实际调用客户端需实现 Psr\Http\Client\ClientInterface 
+composer require guzzlehttp/guzzle
 ```
 ## 在 Hyperf-3(PHP8.1) 框架上使用
 ```php
@@ -49,6 +51,7 @@ class Eth extends AbstractController
 
     public function __construct()
     {
+        // Psr\Http\Client\ClientInterface
         $client = new Client([
             // eth 节点, 这里为 eth-goerli 测试节点
             'base_uri' => 'https://eth-goerli.g.alchemy.com/v2/cQ_wTHz6237vKR8yagHHTyrv1XPug_Oj',
