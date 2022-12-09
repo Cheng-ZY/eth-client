@@ -50,7 +50,7 @@ class Eth extends AbstractController
     public function __construct()
     {
         $client = new Client([
-            // eth 节点
+            // eth 节点, 这里为 eth-goerli 测试节点
             'base_uri' => 'https://eth-goerli.g.alchemy.com/v2/cQ_wTHz6237vKR8yagHHTyrv1XPug_Oj',
             'timeout' => 10,
         ]);
@@ -94,7 +94,7 @@ class Eth extends AbstractController
             'value' => Utils::ethToWei($value, true),
             'data' => '0x',
         ];
-        // gas 预估值
+        // gas 数量
         $trans['gas'] = dechex((int) hexdec($this->ethClient->eth_estimateGas($trans)));
         // gas 单价
         $trans['gasPrice'] = $this->ethClient->eth_gasPrice();
@@ -102,20 +102,33 @@ class Eth extends AbstractController
         $trans['nonce'] = $this->ethClient->eth_getTransactionCount($from, 'pending');
 
         // 发送交易请求，返回交易哈希
-        $txid = $this->ethClient->sendTransaction($trans);
-        // 交易收据
-        $transactionReceipt = $this->ethClient->eth_getTransactionReceipt($txid);
+        $transHash = $this->ethClient->sendTransaction($trans);
 
         return $this->responseJson([
             'code' => 200,
             'msg' => 'Eth/Transaction',
             'data' => [
-                'txid' => $txid,
-                'transactionReceipt' => $transactionReceipt,
+                'transHash' => $transHash,
                 'transactionData' => $trans,
             ],
         ]);
     }
-}
 
+    /**
+     * 根据交易哈希获取交易收据。
+     */
+    #[RequestMapping(path: 'getTransactionReceipt')]
+    public function getTransactionReceipt(): ResponseInterface
+    {
+        // 交易哈希
+        $transHash = $this->request->input('transHash');
+        // 交易收据
+        $result = $this->ethClient->eth_getTransactionReceipt($transHash);
+        return $this->responseJson([
+            'code' => 200,
+            'msg' => 'Eth/getTransactionReceipt',
+            'data' => $result,
+        ]);
+    }
+}
 ```
